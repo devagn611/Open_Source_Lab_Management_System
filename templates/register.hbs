@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+    <link rel="stylesheet" type="text/css" href="login.css">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        body,
+        html {
+            height: 100%;
+            font-family: "Quicksand", sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        body {
+            background: rgba(30, 29, 31, 1);
+            background: -moz-linear-gradient(
+                -45deg,
+                rgba(30, 29, 31, 1) 0%,
+                rgba(223, 64, 90, 1) 100%
+            );
+            background: -webkit-gradient(
+                left top,
+                right bottom,
+                color-stop(0%, rgba(30, 29, 31, 1)),
+                color-stop(100%, rgba(223, 64, 90, 1))
+            );
+            background: -webkit-linear-gradient(
+                -45deg,
+                rgba(30, 29, 31, 1) 0%,
+                rgba(223, 64, 90, 1) 100%
+            );
+            background: -o-linear-gradient(
+                -45deg,
+                rgba(30, 29, 31, 1) 0%,
+                rgba(223, 64, 90, 1) 100%
+            );
+            background: -ms-linear-gradient(
+                -45deg,
+                rgba(30, 29, 31, 1) 0%,
+                rgba(223, 64, 90, 1) 100%
+            );
+            background: linear-gradient(
+                135deg,
+                rgba(30, 29, 31, 1) 0%,
+                rgba(223, 64, 90, 1) 100%
+            );
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e1d1f', endColorstr='#df405a', GradientType=1 );
+                font-family: 'Ubuntu', sans-serif;
+        }
+
+        /*--------------------
+        Text
+        ---------------------*/
+
+        h2,
+        h3 {
+            font-size: 16px;
+            letter-spacing: -1px;
+            line-height: 20px;
+        }
+
+        h2 {
+            color: #747474;
+            text-align: center;
+        }
+
+        h3 {
+            color: #032942;
+            text-align: right;
+        }
+
+        /*--------------------
+        Icons
+        ---------------------*/
+        .i {
+            width: 20px;
+            height: 20px;
+        }
+
+        .i-login {
+            margin: 13px 0px 0px 15px;
+            position: relative;
+            float: left;
+            background-image: url(data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMT6…)
+            /* Rest of your CSS styles */
+        }
+
+        .form-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            /* height: 100vh; */
+            background-color: rgba(255, 255, 255, 0.8); /* Adjust opacity as needed */
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 20px;
+            /* margin: 20px; */
+            text-align: center;
+            /* transition: transform 0.3s; */
+            width: 300px;
+            max-width: 100%;
+            backdrop-filter: blur(10px); /* Add a blur effect */
+        }
+    </style>
+</head>
+<body>
+
+
+      {{#if isLoggedIn}}
+     <script>
+            window.location.href = '/dashboard';
+        </script>
+    {{else}}
+    <div class="container">
+        <div id="login-form" class="form-container">
+            <h2>Register</h2>
+           <form action="/register" method="POST" class="signup">
+                    <div class="field">
+                         <input type="text" name="name" placeholder="Username" required>
+                    </div>
+                    <div class="field">
+                        <input type="number" name="phoneNumber" placeholder="PhoneNumber" required>
+                
+                    </div>
+                    <div class="field">
+                <input type="password" name="password" placeholder="Password" required>
+                    </div>
+                    <div class="field btn">
+                        <div class="btn-layer"></div>
+                        <input type="submit" value="Signup">
+                    </div>
+                </form>
+        </div>
+    </div>
+{{/if}}
+    
+</body>
+</html>

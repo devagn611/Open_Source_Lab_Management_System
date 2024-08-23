@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Lab Management Login</title>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/login.css"> <!-- CSS file for existing styles -->
+  
+</head>
+<body>
+
+   <nav>  
+<ul class="nav-links">
+        <li class="link"><a href="/">Home</a></li>
+        <li class="link"><a href="/#about">About</a></li>
+        <li class="link"><a href="/#contact">Contact</a></li>
+      </ul>
+      
+    </nav>
+
+    <div class="wrapper">
+        <div class="title-text">
+            {{!-- <div class="title login">Login </div>
+            <div class="title signup">Signup Form</div> --}}
+        </div>
+        <div class="form-container">
+            <div class="slide-controls">
+                <input type="radio" name="slide" id="login" checked>
+                <input type="radio" name="slide" id="signup">
+                <label for="login" class="slide login">Login</label>
+                <label for="signup" class="slide signup">Signup</label>
+                <div class="slider-tab"></div>
+            </div>
+            <div class="form-inner">
+                <form action="/patient-login" method="POST" class="login">
+                    {{!-- <div class="field">
+                        <input type="text" name="name" placeholder="Username" >
+                    </div> --}}
+                     <div class="field">
+                        <input type="number" name="phoneNumber" placeholder="Phone Number" required>
+                    </div>
+                    <div class="field">
+                        <input type="password" name="password" placeholder="Password" required>
+                    </div>
+                    {{!-- <div class="pass-link"><a href="#">Forgot password?</a></div> --}}
+                    <div class="field btn">
+                        <div class="btn-layer"></div>
+                        <input type="submit" value="Login">
+                    </div>
+                    <div class="signup-link">Not a member? <a href="/patient-register">Register now</a></div>
+                </form>
+                <form action="/patient-register" method="POST" class="signup">
+                    <div class="field">
+                         <input type="text" name="name" placeholder="Username" required>
+                    </div>
+                    <div class="field">
+                        <input type="password" name="password" placeholder="Password" required>
+                    </div>
+
+                    <div class="field">
+                        <input type="number" name="phoneNumber" placeholder="PhoneNumber" required>
+                    </div>
+                    
+                    <div class="field">
+                        <input type="email" name="email" placeholder="Email ID" required>
+                    </div>
+
+                    <div class="signup-link">Already Registered? <a href="/patient-login">Login now</a></div>
+
+
+                    <div class="field btn">
+                        <div class="btn-layer"></div>
+                        <input type="submit" value="Signup">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+ <script>
+        const loginText = document.querySelector(".title-text .login");
+        const loginForm = document.querySelector("form.login");
+        const loginBtn = document.querySelector("label.login");
+        const signupBtn = document.querySelector("label.signup");
+        const signupLink = document.querySelector("form .signup-link a");
+
+        signupBtn.onclick = () => {
+            loginForm.style.marginLeft = "-50%";
+            loginText.style.marginLeft = "-50%";
+        };
+
+        loginBtn.onclick = () => {
+            loginForm.style.marginLeft = "0%";
+            loginText.style.marginLeft = "0%";
+        };
+
+        signupLink.onclick = () => {
+            signupBtn.click();
+            return false; // Prevents default action of the link
+        };
+    </script>
+    
+</body>
+</html>

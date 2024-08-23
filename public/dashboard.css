@@ -1,0 +1,169 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background-color: #f0f0f0;
+}
+
+.dashboard-container {
+  display: flex;
+  height: 100vh;
+}
+
+.nav-logo {
+  font-size: 80px;
+}
+.header {
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+}
+
+.menu {
+  height: fit-content;
+  margin: 5px;
+  border: 2px solid black;
+  border-radius: 10px;
+  z-index: 1000;
+  box-shadow: 6px 4px 3px rgba(0, 0, 0, 0.12);
+  text-align: center;
+  width: 20%;
+  background-color: #fff;
+  color: #000;
+}
+
+.menu ul {
+  list-style: none;
+  padding: 0;
+}
+
+.menu li {
+  margin: 10px 0;
+}
+
+.menu a {
+  display: block;
+  text-decoration: none;
+  color: #3b3b3b;
+  padding: 10px;
+  transition: background-color 0.2s;
+}
+
+.menu a:hover {
+  background-color: #555;
+}
+
+.content {
+  border-radius: 10px;
+  margin: 5px;
+  border: 2px solid black;
+  box-shadow: 6px 4px 3px rgba(0, 0, 0, 0.12);
+  height: fit-content;
+  width: 80%;
+  padding: 16px;
+  background-color: #fff;
+}
+
+.header {
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+  display: flex;
+  justify-content: space-between; /* Align items horizontally */
+  align-items: center; /* Center items vertically */
+}
+
+.logout-button {
+  text-decoration: none;
+  color: #fff;
+  padding: 10px;
+  margin-right: 20px; /* Adjust the margin to control the distance from the right corner */
+  border: 1px solid #fff; /* Add a border for styling */
+  border-radius: 5px; /* Add rounded corners */
+}
+
+.logout-button:hover {
+  background-color: #555;
+}
+
+.top-loader-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  backdrop-filter: blur(10px); /* Add a blur effect to the loader */
+}
+
+.top-loader {
+  border: 8px solid #f3f3f3;
+  border-top: 8px solid #3498db;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .dashboard-container {
+    display: grid;
+  }
+  .card {
+    margin-top: 10px;
+    width: 300px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  }
+
+  .card-image img {
+    width: 100%;
+    max-height: 200px;
+    object-fit: cover;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+  }
+
+  .card-content {
+    padding: 20px;
+    background-color: #fff;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    text-align: center;
+  }
+
+  .card-content p {
+    margin: 0;
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+  image {
+    height: -webkit-fill-available;
+    width: -webkit-fill-available;
+  }
+
+  .menu { 
+    width: 80%;
+  }
+
+  .content {
+    width: 80%;
+  }
+}

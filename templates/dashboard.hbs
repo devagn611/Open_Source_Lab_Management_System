@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Laboratory Reporting System - Get accurate and fast laboratory test results at your fingertips.">
+    <meta name="keywords" content="laboratory, reporting, test results">
+    <meta name="author" content="Maniya Devagn">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.min.css"
+        integrity="sha512-MqL4+Io386IOPMKKyplKII0pVW5e+kb+PI/I3N87G3fHIfrgNNsRpzIXEi+0MQC0sR9xZNqZqCYVcC61fL5+Vg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/dashboard.css">
+    
+
+<style>
+  .card{
+    backdrop-filter: blur(6px);
+    margin:10px 0 0 0 ;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+background-color: #201e1e30;
+ width: 250px;
+ border-radius: 10px;
+ border: 1px black solid;
+ justify-content: center;
+ text-align: center;
+  }
+
+  .card img{
+    padding: 8px;
+    border-radius: 20px;
+    width: auto;
+  }
+</style>
+</head>
+
+<body>
+    {{#if isLogging}}
+    <div class="header">
+        <h1>Dashboard</h1>
+        <a href="/logout" class="logout-button">Logout</a>
+    </div>
+
+    <div class="dashboard-container">
+        <div class="menu">
+            <!-- Vertical menu content -->
+            <ul>
+                <div class="nav-logo">
+                  <i class="ri-account-circle-line"></i>
+                </div>
+                <li>Name: <span id="logged-username">{{ naming }}</span></li>
+                <li><a href="/home" target="_blank">Home</a></li>
+                <li><a href="/report" data-page="/report">Reports</a></li>
+                <li><a href="/tests">Tests</a></li>
+                <!-- Add more menu items as needed -->
+            </ul>
+        </div>
+        <div class="content" id="content-container">
+            <h1><p>Welcome, {{naming}}</p> </h1>
+            
+
+            <h2>Recent Tests</h2>
+            <div class="test-container row">
+                <!-- Displaying test cards using Bootstrap grid system -->
+                <div class="card col-md-6">
+                    <img class="card-img-top"
+                        src="https://medixcollege.ca/wp-content/uploads/2023/02/Feb-3-medical-lab-tech-courses.jpg"
+                        alt="Blood Test">
+                    <div class="card-body">
+                        <h5 class="card-title">Blood Test</h5>
+                        <p>All reports are included.</p>
+                        <a href="#" class="btn btn-primary">View Reports</a>
+                    </div>
+                </div>
+
+                <div class="card col-md-6">
+                    <div class="card-body">
+                        <h5 class="card-title">Hiteshbhai Maheshbhai</h5>
+                        <p>Blood Test</p>
+                    </div>
+                </div>
+            </div>
+
+            <script>
+                document.addEventListener('DOMContentLoaded', () => {
+                    const contentContainer = document.getElementById('content-container');
+                    const menuLinks = document.querySelectorAll('.menu a');
+
+                    menuLinks.forEach(link => {
+                        link.addEventListener('click', (e) => {
+                            e.preventDefault();
+                            const page = e.target.getAttribute('data-page');
+                            loadPage(page);
+                        });
+                    });
+
+                    function loadPage(page) {
+                        contentContainer.innerHTML = `
+                                <div class="top-loader-container">
+                                    <div class="top-loader"></div>
+                                </div>`;
+
+                        setTimeout(() => {
+                            fetch(page)
+                                .then(response => response.text())
+                                .then(html => {
+                                    contentContainer.innerHTML = html;
+                                })
+                                .catch(error => {
+                                    console.error('Error loading page:', error);
+                                });
+                        }, 1000);
+                    }
+                });
+            </script>
+<script src="/reportscript.js"></script>
+
+        </div>
+    </div>
+    </div>
+    {{else}}
+    <div class="container text-center mt-5">
+        <p>You are not logged in. Please log in to access the dashboard.</p>
+    </div>
+    {{/if}}
+</body>
+
+</html>
